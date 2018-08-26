@@ -6,7 +6,7 @@ import './App.css';
 
 const API_KEY = "e60fce0b95b2b3ba82228c09d61f5178";
 
-class App extends Component {
+class App extends React.Component {
   state = {
     temperature: undefined,
     city: undefined,
@@ -25,7 +25,7 @@ class App extends Component {
     const data = await api_call.json();
     console.log(data);
     if(city && country) {
-      this.setState({ 
+      this.setState({
         temperature: data.main.temp,
         city: data.name,
         country: data.sys.country,
@@ -43,7 +43,7 @@ class App extends Component {
         error: 'Enter city and country'
       })
     }
-    
+
 
   }
 
@@ -59,7 +59,7 @@ class App extends Component {
       </div>
       <div className="col-xs-7 form-container">
       <Form getWeather={this.getWeather}/>
-      <Weather 
+      <Weather
         temperature={this.state.temperature}
         city={this.state.city}
         country={this.state.country}
@@ -72,7 +72,7 @@ class App extends Component {
       </div>
       </div>
       </div>
-  
+
 
 
     );
@@ -81,4 +81,3 @@ class App extends Component {
 
 
 export default App;
-
